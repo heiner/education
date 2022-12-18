@@ -8,7 +8,7 @@
     %meter = "Guitar: Capo 2nd fret (sounding key D major)"
 }
 
-\version "2.10.10"
+\version "2.24.0"
 
 \paper{
   top-margin = 3\cm
@@ -80,12 +80,12 @@ verse = \lyricmode {
     \context GrandStaff <<
       \context Staff = upper <<
         \set Staff.printPartCombineTexts = ##f
-        \new Voice = "singer" { \partcombine \Soprano \Alto }
+        \new Voice = "singer" { \partCombine \Soprano \Alto }
       >>
       \context Staff = lower <<
         \set Staff.printPartCombineTexts = ##f
         \clef bass
-        \partcombine { \Tenor } { \Bass }
+        \partCombine { \Tenor } { \Bass }
       >>
     >>
   >>

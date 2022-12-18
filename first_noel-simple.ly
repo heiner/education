@@ -1,4 +1,4 @@
-\version "2.10.10"
+\version "2.24.0"
 
 #(set-default-paper-size "a4")
 
@@ -88,10 +88,10 @@ changes = \chordmode {
 \score {
   <<
     \context ChordNames {
-      \override ChordNames . ChordName  #'font-name = #"Century Schoolbook L"
-      \override ChordNames . ChordName  #'font-size = #-1
-      \override ChordNames . ChordName  #'Y-extent = #'(1 . 3)
-      \override ChordNames . ChordName  #'Y-offset = #-1
+      \override ChordNames.ChordName.font-name = #"Century Schoolbook L"
+      \override ChordNames.ChordName.font-size = #-1
+      \override ChordNames.ChordName.Y-extent = #'(1 . 3)
+      \override ChordNames.ChordName.Y-offset = #-1
 
       \transpose g d \changes
     }
@@ -128,7 +128,7 @@ changes = \chordmode {
 
 %\markup{
 %  \bold "2" \hspace #0.4 % Eigentlich Vers 4
-%  \wordwrap-string #"
+%  \wordwrap-string "
 %  Dein Wort, Herr, nicht vergehet, /
 %  es bleibet ewiglich, /
 %  so weit der Himmel gehet, /

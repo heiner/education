@@ -1,7 +1,7 @@
 % Amazing Grace
 % von http://www.mail-archive.com/lilypond-user@gnu.org/msg36792.html
 
-\version "2.12.3"
+\version "2.24.0"
 
 %#(set-default-paper-size "a5")
 
@@ -40,7 +40,7 @@ global = {
   \bar "|."
 }
 Key = { \key c \major }
-i   = \relative c' { \times 2/3 { e8( d c) } | e2 }
+i   = \relative c' { \tuplet 3/2 { e8( d c) } | e2 }
 melody = \relative c' {
   \Key
   g8( c) c2 \i e8( d) c2 a4 | g2
@@ -75,14 +75,14 @@ changes = \chordmode {
 
 %\markup{
 %  \bold "2" \hspace #0.4
-%  \wordwrap-string #"
+%  \wordwrap-string "
 %  ’Twas grace that taught my heart to fear, / and grace my fears relieved; /
 %  how precious did that grace appear, / the hour I first believed!"
 %}
 
 %\markup{
 %  \bold "3" \hspace #0.4
-%  \wordwrap-string #"
+%  \wordwrap-string "
 %  Through many dangers, toils and snares, / I have already come; /
 %  ’tis grace hath brought me safe thus far, / and grace will lead me home."
 %}

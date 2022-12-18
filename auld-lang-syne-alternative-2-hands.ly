@@ -1,7 +1,7 @@
 % Auld Lang Syne
 % abgeschrieben von http://de.wikibooks.org/wiki/Liederbuch:_Auld_Lang_Syne
 
-\version "2.12.3"
+\version "2.24.0"
 
 #(set-default-paper-size "a4")
 
@@ -11,7 +11,7 @@
   line-width = 148\mm
 }
 
-lowerChords = { \override ChordName #'Y-offset = #-3 }
+lowerChords = { \override ChordName.Y-offset = #-3 }
 
 \header {
     tagline = \markup \small { "Music engraving by" \italic "LilyPond" }
@@ -101,10 +101,10 @@ changes = \chordmode {
 \score {
   <<
     \new ChordNames {
-     \override ChordNames . ChordName  #'font-name = #"Century Schoolbook L"
-     \override ChordNames . ChordName  #'font-size = #-1
-     \override ChordNames . ChordName  #'Y-extent = #'(1 . 3)
-     \override ChordNames . ChordName  #'Y-offset = #-1
+     \override ChordNames.ChordName.font-name = #"Century Schoolbook L"
+     \override ChordNames.ChordName.font-size = #-1
+     \override ChordNames.ChordName.Y-extent = #'(1 . 3)
+     \override ChordNames.ChordName.Y-offset = #-1
 
      \transpose f c \changes
     }
@@ -128,11 +128,11 @@ changes = \chordmode {
     \context {
       % Tempo of the midi file: 100 quarter notes (4) per minute
       \Score
-      tempoWholesPerMinute = #(ly:make-moment 100 4)
+      tempoWholesPerMinute = #(ly:make-moment 100/4)
     }
     \context {
       % Don't have the chords in the midi file
-      \ChordNameVoice
+      \ChordNames
       \remove Note_performer
     }
   }

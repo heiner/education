@@ -1,11 +1,11 @@
 % Auld Lang Syne
 % abgeschrieben von http://de.wikibooks.org/wiki/Liederbuch:_Auld_Lang_Syne
 
-\version "2.12.3"
+\version "2.24.0"
 
 #(set-default-paper-size "a5")
 
-lowerChords = { \override ChordName #'Y-offset = #-3 }
+lowerChords = { \override ChordName.Y-offset = #-3 }
 
 % No 'Music engraving by LilyPond ...'
 \header {
@@ -60,10 +60,10 @@ changes = \chordmode {
 \score {
   <<
     \context ChordNames {
-      \override ChordNames . ChordName  #'font-name = #"Century Schoolbook L"
-      \override ChordNames . ChordName  #'font-size = #-1
-      \override ChordNames . ChordName  #'Y-extent = #'(1 . 3)
-      \override ChordNames . ChordName  #'Y-offset = #-1
+      \override ChordNames.ChordName.font-name = #"Century Schoolbook L"
+      \override ChordNames.ChordName.font-size = #-1
+      \override ChordNames.ChordName.Y-extent = #'(1 . 3)
+      \override ChordNames.ChordName.Y-offset = #-1
       %\set chordChanges = ##t
       \transpose f c \changes
     }

@@ -14,7 +14,7 @@
   lastupdated = "2008/1/12"
   footer = "Mutopia-2008/01/13-1243"
 }
-\version "2.10.10"
+\version "2.24.0"
 % #(set-default-paper-size "letter")
 
 Soprano = {
@@ -56,34 +56,34 @@ Bass = {
   \context GrandStaff <<
     \context Staff = upper <<
       \set Staff.printPartCombineTexts = ##f
-      \partcombine
-      {   #(set-accidental-style 'modern-cautionary) \Soprano }
+      \partCombine
+      {   \accidentalStyle modern-cautionary \Soprano }
       { \Alto}
     >>
     \context Staff = lower <<
       \set Staff.printPartCombineTexts = ##f
       \clef bass
-      \partcombine	{  #(set-accidental-style 'modern-cautionary) \Tenor }
+      \partCombine	{  \accidentalStyle modern-cautionary \Tenor }
       { \Bass }
     >>
   >>
   \midi { \context { \Score tempWholesPerMinute = #(ly:make-moment 107 4 ) } }
   \layout {
-    between-system-space = 1\mm
+    obsolete-between-system-space = 1\mm  system-system-spacing.basic-distance = #(/ obsolete-between-system-space staff-space)  score-system-spacing.basic-distance = #(/ obsolete-between-system-space staff-space)
     \context {
       \Score
       % defaults
       % (shortest-duration-space . 2.0)
       % (spacing-increment . 1.2)
-      % (base-shortest-duration . ,(ly:make-moment 1 8))
+      % (base-shortest-duration . ,(ly:make-moment 1/8))
       % tighter spacing
-      \override SpacingSpanner #'shortest-duration-space = #2.8
-      \override SpacingSpanner #'spacing-increment = #0.6
-      \override SpacingSpanner #'base-shortest-duration = #(ly:make-moment 1 8)
+      \override SpacingSpanner.shortest-duration-space = #2.8
+      \override SpacingSpanner.spacing-increment = #0.6
+      \override SpacingSpanner.base-shortest-duration = #(ly:make-moment 1/8)
       \remove "Bar_number_engraver"
   }
     \context { \Staff
-               \override VerticalAxisGroup #'minimum-Y-extent = #'(-1 . 1)
+               \override VerticalAxisGroup.minimum-Y-extent = #'(-1 . 1)
              }
   }
 }

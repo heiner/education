@@ -3,7 +3,7 @@
 % Text: cornelius Becker 1602
 % Melodie und Satz: Heinrich Schütz 1661
 
-\version "2.12.3"
+\version "2.24.0"
 
 %#(set-default-paper-size "a5")
 
@@ -34,10 +34,10 @@
 }
 
 divisioMinima = {
-  \once \override BreathingSign  #'stencil = #ly:breathing-sign::divisio-minima
+  \once \override BreathingSign.stencil = #ly:breathing-sign::divisio-minima
 
   % Workaround: add padding.  Correct fix would be spacing engine handle this.
-  \once \override BreathingSign  #'extra-X-extent = #'(-1.0 . 0)
+  \once \override BreathingSign.extra-X-extent = #'(-1.0 . 0)
 
   \breathe
 }
@@ -93,7 +93,7 @@ divisioMinima = {
 
 %\markup{
 %  \bold "2" \hspace #0.4 % Eigentlich Vers 4
-%  \wordwrap-string #"
+%  \wordwrap-string "
 %  Dein Wort, Herr, nicht vergehet, /
 %  es bleibet ewiglich, /
 %  so weit der Himmel gehet, /

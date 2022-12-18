@@ -1,4 +1,4 @@
-\version "2.10.10"
+\version "2.24.0"
 
 #(set-default-paper-size "a4")
 

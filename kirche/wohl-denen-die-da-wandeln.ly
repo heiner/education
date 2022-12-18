@@ -3,7 +3,7 @@
 % Text: cornelius Becker 1602
 % Melodie und Satz: Heinrich Schütz 1661
 
-\version "2.12.3"
+\version "2.24.0"
 
 #(set-default-paper-size "a5")
 
@@ -22,16 +22,16 @@
 }
 
 global = {
-  \override Staff.BarLine #'transparent = ##t
+  \override Staff.BarLine.transparent = ##t
   % the final bar line is not interrupted
-  \revert Staff.BarLine #'transparent
+  \revert Staff.BarLine.transparent
   \bar "|."
 }
 
 \score {
   \new StaffGroup <<
     \new Staff <<
-      \override Staff.BarLine #'transparent = ##t
+      \override Staff.BarLine.transparent = ##t
       \clef treble
       \new Voice = "Sop" {
         \voiceOne { \key g \major \time 4/4 \partial 4 }
@@ -47,7 +47,7 @@ global = {
       \new Lyrics \lyricsto "Sop" { Wohl }
     >>
     \new Staff <<
-      \override Staff.BarLine #'transparent = ##t
+      \override Staff.BarLine.transparent = ##t
       \clef bass
       \key g \major
       \time 4/4

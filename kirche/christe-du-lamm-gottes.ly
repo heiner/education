@@ -6,7 +6,7 @@
 % http://lilypond.org/cygwin/release/lilypond/lilypond-doc/x/usr/share/doc/lilypond/html/Documentation/user/lilypond/Working-with-ancient-music_002d_002dscenarios-and-solutions.ja.html#Transcribing-Gregorian-chant
 %
 
-\version "2.12.3"
+\version "2.24.0"
 
 %#(set-default-paper-size "a5")
 
@@ -34,16 +34,15 @@
   \context {
     \Score
     \remove "Bar_number_engraver"
-    \override SpacingSpanner
-        #'common-shortest-duration = #(ly:make-moment 1 1)
+    \override SpacingSpanner.common-shortest-duration = #(ly:make-moment 1/1)
   }
 }
 
 divisioMinima = {
-  \once \override BreathingSign  #'stencil = #ly:breathing-sign::divisio-minima
+  \once \override BreathingSign.stencil = #ly:breathing-sign::divisio-minima
 
   % Workaround: add padding.  Correct fix would be spacing engine handle this.
-  \once \override BreathingSign  #'X-extent = #'(0.6 . 0.0)
+  \once \override BreathingSign.X-extent = #'(0.6 . 0.0)
 
   \breathe
 }
@@ -51,7 +50,7 @@ divisioMinima = {
 chant = \relative c' {
   \key f \major
   \time 1/4
-  %\override Lyrics.LyricText #'X-extent  = #'(1 . 0)
+  %\override Lyrics.LyricText.X-extent  = #'(1 . 0)
   f4 g a a {bes8 bes} a4 \divisioMinima
   a g a bes {c8 c} bes4 a \divisioMinima
   a g f {a8 a} g4 \divisioMinima
@@ -62,10 +61,10 @@ chant = \relative c' {
   a g a bes {c8 c} bes4 a \divisioMinima
   a a g f
   {a8 a}
-  \once \override Lyrics.LyricText #'X-extent  = #'(0 . 3)
+  \once \override Lyrics.LyricText.X-extent  = #'(0 . 3)
   {g8 g8} \divisioMinima
-  %\override Lyrics.LyricText #'X-extent  = #'(10 . 0)
-  \times 8/8 {f32 g a bes bes a g f}
+  %\override Lyrics.LyricText.X-extent  = #'(10 . 0)
+  \tuplet 8/8 {f32 g a bes bes a g f}
   {g8 g}
   \bar "|."
 }
@@ -89,11 +88,11 @@ verba = \lyricmode {
     \context {
       \Staff
       \remove "Time_signature_engraver"
-      \override BarLine #'X-extent = #'(-1 . 1)
-      \override Stem #'transparent = ##t
-      \override Beam #'transparent = ##t
-      \override BarLine #'transparent = ##t
-      \override TupletNumber #'transparent = ##t
+      \override BarLine.X-extent = #'(-1 . 1)
+      \override Stem.transparent = ##t
+      \override Beam.transparent = ##t
+      \override BarLine.transparent = ##t
+      \override TupletNumber.transparent = ##t
     }
   }
   \midi { }

@@ -3,7 +3,7 @@
 % Text und Melodie: Martin Rinckart (um 1630) 1636
 % (Melodiefassung nach Johann Crüger 1647)
 
-\version "2.12.3"
+\version "2.24.0"
 
 %#(set-default-paper-size "a5")
 

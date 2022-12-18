@@ -3,7 +3,7 @@
 % Ökumenische Fassung 1971 nach >>Gloria in excelsis Deo<< 4. Jh
 % Melodie: Augsburg 1659
 
-\version "2.12.3"
+\version "2.24.0"
 
 #(set-default-paper-size "a5")
 

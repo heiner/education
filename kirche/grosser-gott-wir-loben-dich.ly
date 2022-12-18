@@ -3,7 +3,7 @@
 % Text: Ignaz Franz 1768 nach dem >>Te Deum laudamuse<< 4. Jh.
 % Melodie: Lüneburg 1668, Wien um 1776, Leipzig 1819
 
-\version "2.12.3"
+\version "2.24.0"
 
 %#(set-default-paper-size "a5")
 

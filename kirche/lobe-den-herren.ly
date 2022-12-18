@@ -3,7 +3,7 @@
 % Text: Joachim Neander 1680, ökumenische Fassung 1973
 % Melodie: 17. Jh.; geistlich Stralsund 1665, Halle 1741
 
-\version "2.12.3"
+\version "2.24.0"
 
 %#(set-default-paper-size "a5")
 
@@ -34,10 +34,10 @@
 }
 
 divisioMinima = {
-  \once \override BreathingSign  #'stencil = #ly:breathing-sign::divisio-minima
+  \once \override BreathingSign.stencil = #ly:breathing-sign::divisio-minima
 
   % Workaround: add padding.  Correct fix would be spacing engine handle this.
-  \once \override BreathingSign  #'extra-X-extent = #'(-1.0 . 0)
+  \once \override BreathingSign.extra-X-extent = #'(-1.0 . 0)
 
   \breathe
 }

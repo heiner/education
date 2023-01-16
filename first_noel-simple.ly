@@ -17,7 +17,7 @@
        (alteration->text-accidental-markup alteration)
        (or (= alteration FLAT) (= alteration SHARP)) 0.2)))
 
-#(define (note-name->markup-lowercase pitch)
+#(define (note-name->markup-lowercase pitch rest)
    "Return pitch markup for PITCH in lowercase."
    (make-line-markup
     (list

@@ -1,4 +1,3 @@
-
 \version "2.24.0"
 
 #(set-default-paper-size "a4" 'landscape)
@@ -24,8 +23,8 @@
 \score {
   \new GrandStaff <<
     \new Staff = upper {
-      \new Voice = "singer"
       \set Score.timing = ##f
+      \new Voice = "singer"
       \relative c' {
         \easyHeadsOn
         c4 d e f g a b c d e f g a b c

@@ -1,0 +1,19 @@
+cmake_minimum_required(VERSION 3.17)
+project(sheetmusic)
+
+file(GLOB LY_FILES
+  "*.ly")
+
+set(PDF_FILES)
+
+foreach(LY_FILE ${LY_FILES})
+  get_filename_component(NAME ${LY_FILE} NAME_WE)
+  add_custom_command(
+    OUTPUT "${NAME}.pdf"
+    COMMAND lilypond "${LY_FILE}"
+    DEPENDS "${LY_FILE}"
+    VERBATIM)
+  list(APPEND PDF_FILES "${NAME}.pdf")
+endforeach()
+
+add_custom_target(dat ALL DEPENDS ${PDF_FILES})

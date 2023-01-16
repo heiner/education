@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.17)
 project(sheetmusic)
 
-file(GLOB LY_FILES
+file(GLOB_RECURSE LY_FILES
   "*.ly")
 
 set(PDF_FILES)
@@ -9,7 +9,7 @@ set(PDF_FILES)
 foreach(LY_FILE ${LY_FILES})
   get_filename_component(NAME ${LY_FILE} NAME_WE)
   add_custom_command(
-    OUTPUT "${NAME}.pdf"
+    OUTPUT "${NAME}.pdf" "${NAME}.midi"
     COMMAND lilypond "${LY_FILE}"
     DEPENDS "${LY_FILE}"
     VERBATIM)

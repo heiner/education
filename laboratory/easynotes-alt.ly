@@ -24,8 +24,8 @@
 \score {
   \new GrandStaff <<
     \new Staff = upper {
-      \new Voice = "singer"
       \set Score.timing = ##f
+      \new Voice = "singer"
       \relative c' {
         \easyHeadsOn
         s4 s s s s s s s s s s s

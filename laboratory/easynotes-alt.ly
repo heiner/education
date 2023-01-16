@@ -10,7 +10,7 @@
 }
 
 \header {
-    tagline = \markup \tiny { "Music engraving by" \italic "LilyPond" "2.12.3" }
+    tagline = \markup \tiny { "Music engraving by" \italic "LilyPond" "2.24.0" }
     title = \markup \center-column { \medium\larger "Easy Notes" }
 }
 
@@ -19,7 +19,7 @@
   indent = 0\in
 }
 
-#(set-global-staff-size 40)
+#(set-global-staff-size 32)
 
 \score {
   \new GrandStaff <<

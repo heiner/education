@@ -3,3 +3,5 @@ build/
 *.ps
 *.midi
 *.mid
+*.log
+*.aux

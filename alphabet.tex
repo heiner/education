@@ -1,5 +1,7 @@
 % pdflatex alphabet.tex
 % pdfjam --nup 2x2 alphabet.pd
+%  or
+% pdflatex alphabet.tex && pdfjam --nup 4x4 --frame true alphabet.pdf --outfile alphabet-4x4.pdf
 \documentclass[a4paper]{article}
 
 \usepackage[utf8]{inputenc}
@@ -18,6 +20,13 @@
 %\usepackage[utf8x]{inputenc}
 \usepackage[left=0in,right=0in,top=0in,bottom=0in]{geometry}
 
+% To show total height:
+\newcommand{\outerbox}[1]{\framebox{#1}}
+% Alternative, if --frame true in pdfjam:
+\renewcommand{\outerbox}[1]{#1}
+
+% I'm not sure why I can't just use 1.0\textwidth below.
+
 \begin{document}
 \pagestyle{empty}
 
@@ -29,7 +38,7 @@
 
   \vfill
 
-  \centering\noindent\framebox{\scalebox{45}{\makebox[1em]{\strut\scshape\L}}}
+  \centering\noindent\outerbox{\resizebox*{0.86\textwidth}{!}{\makebox[1em]{\strut\scshape\L}}}
 
   \vfill
   ~
@@ -41,7 +50,7 @@
 
   \vfill
 
-  \centering\noindent\framebox{\scalebox{1.5}{\fontsize{250}{260}\selectfont{\strut\L}}}
+  \centering\noindent\outerbox{\scalebox{1.75}{\fontsize{250}{260}\selectfont{\strut\L}}}
 
   \vfill
   ~

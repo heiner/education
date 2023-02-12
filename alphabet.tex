@@ -1,0 +1,52 @@
+% pdflatex alphabet.tex
+% pdfjam --nup 2x2 alphabet.pd
+\documentclass[a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+\usepackage{lmodern}
+\usepackage{amsmath}
+
+\usepackage{graphicx}
+
+\usepackage[opticals,textosf,mathosf,swash,minionint,amsbb]{MinionPro}
+\usepackage{MnSymbol}
+
+\usepackage[final]{microtype}
+
+%\usepackage[utf8x]{inputenc}
+\usepackage[left=1in,right=1in,top=1in,bottom=1in]{geometry}
+
+\begin{document}
+\pagestyle{empty}
+
+\makeatletter
+\@for\L:={a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,x,y,z,0,1,2,3,4,5,6,7,8,9}\do{ %\&
+  ~
+
+  \vfill
+
+  \centering\noindent\resizebox{60\width}{!}{\scshape\L}
+
+  \vfill
+  ~
+
+  \pagebreak}
+
+\@for\L:={$+$,$-$,$\times$,$\div$,$=$}\do{
+  ~
+
+  \vfill
+
+  \centering\noindent\resizebox{2\width}{!}{\fontsize{250}{260}\selectfont\L}
+
+  \vfill
+  ~
+
+  \pagebreak}
+
+
+\makeatother
+
+\end{document}

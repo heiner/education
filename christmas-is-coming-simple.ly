@@ -1,11 +1,12 @@
+%
+% An attempt at a weird mix.
+%
 
 \header {
     title = \markup \center-column { \medium\larger
                                      "Christmas is Coming" }
-    subtitle = \markup {\medium "(God bless you)"}
     composer = "trad. English carol"
-    arranger = "arr. Frank Luther"
-    tagline = ##f  % No 'Music engraving by LilyPond ...'
+    tagline = ##f
 }
 
 \version "2.24.0"
@@ -21,16 +22,15 @@
   indent = 0\in
 }
 
-% Frank Luther arrangement.
 Melody = \transpose es f { \relative c'' {
   \numericTimeSignature
   \time 4/4 {
     \key es \major
-    g8.[ f16 g8. es16(]  f8.[ d16) c8.( bes16)]  es8.[ d16 es8. g16]  bes2
+    g8.[ f16 g8. es16]  f8.[ d16 c8. bes16]  es8.[ d16 es8. g16]  bes2
     % - hat
     aes8.[ g16 aes8. f16] g8.[ f16 es8. g16] f4 d bes
     % if you
-    \tuplet 3/2 {r8 es8 f} g8.[ f16 g8. es16] f8.[ d16 c8.( bes16)]
+    \tuplet 3/2 {r8 es8 f} g8.[ f16 g8. es16] f8.[ d16 c8. bes16]
     % ha penny will do
     es8.[ d16 es8. g16] bes4
     \tuplet 3/2 {r8 g g} aes8.[ g16 aes8. f16] g8.[ es16 c8. bes16] es4 es es r4
@@ -46,9 +46,9 @@ Melody = \transpose es f { \relative c'' {
 % Lyrics are a mix of the trad. carol and the Luther song.
 
 verse = \lyricmode {
-Christ -- mas is coming, the geese are get -- ing fat,
+Christ -- mas is co -- m -- in', _ the geese are get -- ing fat,
 Plea -- se put a pen -- ny in an old man's hat.
-If you have -- n't got a pen -- ny, a ha' pen -- ny will do,
+If you have -- n't got a pen -- ny, _ a ha' pen -- ny will do,
 If you have -- n't got a ha' pen -- nny, then God bless you.
 God bless you, gen -- tle -- men, God bless you, If you have -- n't got a ha' pen -- ny then God bless you.
 God bless you.
@@ -64,7 +64,7 @@ changes = \transpose es f { \chordmode {
 }
 }
 
-SimpleMelody = \transpose c f { \relative c' {
+SimpleMelody = { \transpose c f { \relative c' {
   \numericTimeSignature
   \time 4/4 {
     \key c \major
@@ -74,7 +74,11 @@ SimpleMelody = \transpose c f { \relative c' {
     e8 g g g  g8 g g g a4 b c r
   }
 }
-}
+} \transpose es f { \relative c' {
+    es'^\markup { \italic Outro } c bes \tuplet 3/2 {g8 f es} aes4 c bes
+    \tuplet 3/2 {r8 g8 g} aes8 g aes f  g es c bes
+    es4 es es r
+}}}
 
 simpleverse = \lyricmode {
 Christ -- mas is com -- in', the geese are get -- ing fat,
@@ -87,25 +91,11 @@ God bless you.
 
 \score {
   <<
-    \context ChordNames {
-      \override ChordNames.ChordName.font-name = #"Century Schoolbook L"
-      \set chordChanges = ##t
-      \changes
-    }
     \new Voice = "lead" {
-      \Melody
+      \SimpleMelody
     }
-    % \new Voice = "follow" {
-    %   \SimpleMelody
-    % }
-    \new Lyrics \lyricsto "lead" \verse
-    % \new Lyrics \lyricsto "follow" \simpleverse
+    \new Lyrics \lyricsto "lead" \simpleverse
   >>
   \layout { }
   \midi {}
-}
-
-\markup {
-  \vspace #10
-  \fill-line { \epsfile #X #20 #"christmas-is-coming.eps" }
 }

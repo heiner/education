@@ -43,8 +43,21 @@ God bless you.
 % If you have -- n't got a thing for me, may God bless you.
 }
 
+changes = \chordmode {
+  es2 bes:7 es g:m
+  f:m7 es f:7 bes:7 es bes:7
+  es g:m f4:m7 bes4:7 es aes es aes es2 es4
+  aes4 es2 aes es f4:m7 bes:7 es aes
+  es aes es
+}
+
 \score {
   <<
+    \context ChordNames {
+      \override ChordNames.ChordName.font-name = #"Century Schoolbook L"
+      \set chordChanges = ##t
+      \changes
+    }
     \new Voice = "lead" {
       \Melody
     }

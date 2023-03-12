@@ -18,6 +18,7 @@
 \usepackage[final]{microtype}
 
 %\usepackage[utf8x]{inputenc}
+%\usepackage[left=0in,right=0in,top=0in,bottom=0in,landscape]{geometry}
 \usepackage[left=0in,right=0in,top=0in,bottom=0in]{geometry}
 
 % To show total height:
@@ -33,19 +34,20 @@
 \setlength{\fboxsep}{30pt}
 
 \makeatletter
-\@for\L:={a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z,\&,0,1,2,3,4,5,6,7,8,9}\do{
+\@for\L:={a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z,0,1,2,3,4,5,6,7,8,9}\do{
+%\@for\L:={Aa,Bb,Cc,Dd,Ee,Ff,Gg,Hh,Ii,Jj,Kk,Ll,Mm,Nn,Oo,Pp,Qq,Rr,Ss,Tt,Uu,Vv,Ww,Xx,Yy,Zz,\&,0,1,2,3,4,5,6,7,8,9}\do{
   ~
 
   \vfill
 
-  \centering\noindent\outerbox{\resizebox*{0.86\textwidth}{!}{\makebox[1em]{\strut\scshape\L}}}
+  \centering\noindent\outerbox{\resizebox*{0.86\textwidth}{!}{\makebox[2.5em]{\Huge\strut\L}}}
 
   \vfill
   ~
 
   \pagebreak}
 
-\@for\L:={$+$,$-$,$\times$,$\div$,$=$}\do{
+\@for\L:={\&,$+$,$-$,$\times$,$\div$,$=$}\do{
   ~
 
   \vfill

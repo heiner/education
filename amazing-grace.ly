@@ -1,37 +1,26 @@
 % Amazing Grace
 % von http://www.mail-archive.com/lilypond-user@gnu.org/msg36792.html
 
-\version "2.24.0"
+\version "2.18.2"  % necessary for upgrading to future LilyPond versions.
 
-%#(set-default-paper-size "a5")
-
-\paper  {
-  myStaffSize = #18
-  #(define fonts
-    (make-pango-font-tree "Minion Pro"
-     "Myriad Pro"
-     "Luxi Mono"
-     (/ myStaffSize 20)))
-}
-
-% No 'Music engraving by LilyPond ...'
-\header {
-    tagline = ##f
-    %title = "Amazing Grace"
-    %composer = "Early American Melody"
-    %poet = "words by John Newton"
+\paper{
+  top-margin = 3\cm
+  bottom-margin = 2\cm
+  line-width = 148\mm
 }
 
 \layout {
   % Don't outdent after first line
   indent = 0\in
-
-  % Don't count the bar numbers when breaking scores
-  \context {
-    \Score
-    \remove "Bar_number_engraver"
-  }
 }
+
+\header {
+    tagline = ##f
+    title = \markup \center-column { \medium\larger "Amazing Grace"}
+    composer = "Early American Melody"
+    poet = "words by John Newton"
+}
+
 
 global = {
   \time 3/4
@@ -73,16 +62,38 @@ changes = \chordmode {
  \midi { }
 }
 
-%\markup{
-%  \bold "2" \hspace #0.4
-%  \wordwrap-string "
-%  ’Twas grace that taught my heart to fear, / and grace my fears relieved; /
-%  how precious did that grace appear, / the hour I first believed!"
-%}
+\markup {
+  \fill-line {
+    % moves the column off the left margin;
+    % can be removed if space on the page is tight
+    \hspace #0.1
+    \column {
+    \line { \bold "2"
+    \column {
+      \line { ’Twas grace that taught my heart to fear, }
+      \line { and grace my fears relieved; }
+          \line { how precious did that grace appear, }
+          \line { the hour I first believed! }
+    }
+  }
 
-%\markup{
-%  \bold "3" \hspace #0.4
-%  \wordwrap-string "
-%  Through many dangers, toils and snares, / I have already come; /
-%  ’tis grace hath brought me safe thus far, / and grace will lead me home."
-%}
+  }
+  % adds horizontal spacing between columns
+  \hspace #0.1
+  \column {
+    \line { \bold "3"
+      \column {
+        \wordwrap-string "
+          Through many dangers, toils and snares,
+
+          I have already come;
+
+          ’tis grace hath brought me safe thus far,
+
+          and grace will lead me home."
+      }
+   }
+ }
+ \hspace #0.1
+ }
+}

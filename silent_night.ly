@@ -113,11 +113,11 @@ Sleep in heaven -- ly peace!
     \line { \bold "2."
     \column {
       \line { Silent night! Holy night! }
-          \line { Shepherds quake at the sight! }
-          \line { Glories stream from heaven afar, }
-          \line { Heavenly hosts sing Alleluia! }
-          \line { Christ the Saviour is born! }
-          \line { Christ the Saviour is born! }
+      \line { Shepherds quake at the sight! }
+      \line { Glories stream from heaven afar, }
+      \line { Heavenly hosts sing Alleluia! }
+      \line { Christ the Saviour is born! }
+      \line { Christ the Saviour is born! }
     }
   }
 

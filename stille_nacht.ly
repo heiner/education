@@ -5,7 +5,7 @@
                                      "Stille Nacht, heilige Nacht" \teeny " " }
     composer = "Melodie: Franz Xaver Gruber, 1818"
     poet = "Text: Joseph Mohr, 1816"
-    %meter = "Guitar: Capo 2nd fret (sounding key D major)"
+    tagline = ""
 }
 
 \version "2.24.0"
@@ -29,6 +29,7 @@
 
 Melody = {
   \time 6/8 {
+    \easyHeadsOn
     \key bes \major f'8.( g'16) f'8 d'4. f'8.( g'16)
     f'8 d'4. c''4 c''8 a'4. bes'4 bes'8 f'4. g'4 g'8 bes'8.( a'16) g'8
     f'8.( g'16) f'8 d'4. g'4 g'8 bes'8.( a'16) g'8 f'8.( g'16) f'8 d'4. c''4
@@ -73,22 +74,43 @@ verse = \lyricmode {
 \score {
   <<
     \new Voice = "lead" {
-      \Melody
+      \transpose bes c' \Melody
     }
     \new Lyrics \lyricsto "lead" \verse
-
-    \context GrandStaff <<
-      \context Staff = upper <<
-        \set Staff.printPartCombineTexts = ##f
-        \new Voice = "singer" { \partCombine \Soprano \Alto }
-      >>
-      \context Staff = lower <<
-        \set Staff.printPartCombineTexts = ##f
-        \clef bass
-        \partCombine { \Tenor } { \Bass }
-      >>
-    >>
   >>
   \layout { }
   \midi {}
+}
+
+\markup {
+  \fill-line {
+    % moves the column off the left margin;
+    % can be removed if space on the page is tight
+    \hspace #0.1
+    \column {
+      \line { \bold "2."
+        \column \string-lines
+        "Stille Nacht, heilige Nacht!
+         Gottes Sohn, o wie lacht
+         Lieb aus deinem göttlichen Mund,
+         da uns schlägt die rettende Stund,
+         Christ, in deiner Geburt,
+         Christ, in deiner Geburt."
+      }
+    }
+  % adds horizontal spacing between columns
+  \hspace #0.1
+  \column {
+    \line { \bold "3."
+      \column \string-lines
+        "Stille Nacht, heilige Nacht!
+         Hirten erst kundgemacht,
+         durch der Engel Halleluja
+         tönt es laut von fern und nah:
+         Christ, der Retter, ist da,
+         Christ, der Retter, ist da!"
+      }
+    }
+ \hspace #0.1
+ }
 }

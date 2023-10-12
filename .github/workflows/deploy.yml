@@ -29,9 +29,13 @@ jobs:
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v3
+      - name: Install Lilypond
+        run: |
+          sudo apt-get install -y lilypond
       - name: Build
         run: |
-          mkdir _site && cp README.md _site/index.html
+          mkdir _site && cd _site && cmake .. && cmake --build . --parallel
+          find . ! \( -name '*.pdf' -o -name '*.midi' \) -delete
       - name: Upload artifact
         # Automatically uploads an artifact from the './_site' directory by default
         uses: actions/upload-pages-artifact@v2

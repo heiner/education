@@ -67,9 +67,9 @@ Bass = {
       { \Bass }
     >>
   >>
-  \midi { \context { \Score tempWholesPerMinute = #(ly:make-moment 107 4 ) } }
+  \midi { \context { \Score } }
   \layout {
-    obsolete-between-system-space = 1\mm  system-system-spacing.basic-distance = #(/ obsolete-between-system-space staff-space)  score-system-spacing.basic-distance = #(/ obsolete-between-system-space staff-space)
+    between-system-space = 1\mm
     \context {
       \Score
       % defaults

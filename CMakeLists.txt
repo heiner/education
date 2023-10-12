@@ -10,7 +10,7 @@ set(LI)
 foreach(LY_FILE ${LY_FILES})
   get_filename_component(NAME ${LY_FILE} NAME_WE)
   add_custom_command(
-    OUTPUT "${NAME}.pdf" "${NAME}.midi"
+    OUTPUT "${NAME}.pdf"
     COMMAND lilypond -I "${CMAKE_SOURCE_DIR}" "${LY_FILE}"
     DEPENDS "${LY_FILE}"
     VERBATIM)

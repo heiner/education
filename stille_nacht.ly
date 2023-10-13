@@ -1,6 +1,5 @@
 
 \header {
-    tagline = \markup \small { "Music engraving by" \italic "LilyPond" }
     title = \markup \center-column { \medium\larger
                                      "Stille Nacht, heilige Nacht" \teeny " " }
     composer = "Melodie: Franz Xaver Gruber, 1818"

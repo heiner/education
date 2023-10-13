@@ -26,7 +26,7 @@
       (accidental->markup (ly:pitch-alteration pitch)))))
 
 \header {
-    tagline = \markup \small { "Music engraving by" \italic "LilyPond" }
+    tagline = ""
     title = \markup \center-column { \medium\larger "The First Noel" \teeny " " }
     composer = "trad. English carol"
     poet = "arr. first published 1833"

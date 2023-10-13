@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.17)
 project(sheetmusic)
 
-file(GLOB_RECURSE LY_FILES
+file(GLOB LY_FILES
   "*.ly")
 
 set(PDF_FILES)

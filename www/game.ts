@@ -34,6 +34,7 @@ function keyDown(event: KeyboardEvent) {
     if (key.length === 1) {
         ++keyDowns;
         const alternate = document.getElementById("alternate") as HTMLInputElement;
+        const animations = document.getElementById("animations") as HTMLInputElement;
         const size = document.getElementById("size") as HTMLInputElement;
         const color = document.getElementById("color") as HTMLInputElement;
         const letter = document.getElementById("letter") as HTMLDivElement;
@@ -52,7 +53,9 @@ function keyDown(event: KeyboardEvent) {
             letter.style.color =
                 `rgb(${100 * Math.random()}%, ${100 * Math.random()}%, ${100 * Math.random()}%)`;
         }
-        letter.style.animation = `spin${keyDowns % 2} 0.2s linear 1`;
+        if (animations.checked) {
+            letter.style.animation = `spin${keyDowns % 2} 0.2s linear 1`;
+        }
     } else if (key == "Enter") {
         toggleFullScreen();
     }

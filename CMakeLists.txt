@@ -22,12 +22,19 @@ list(JOIN LI "    " LI)
 
 add_custom_command(
   OUTPUT "index.html"
-  COMMAND ${CMAKE_COMMAND} -E copy ${CMAKE_CURRENT_SOURCE_DIR}/html/head.html ${CMAKE_CURRENT_BINARY_DIR}/index.html
+  COMMAND ${CMAKE_COMMAND} -E copy ${CMAKE_CURRENT_SOURCE_DIR}/www/head.html ${CMAKE_CURRENT_BINARY_DIR}/index.html
   COMMAND ${CMAKE_COMMAND} -E echo "${LI}" >> ${CMAKE_CURRENT_BINARY_DIR}/index.html
   COMMAND ${CMAKE_COMMAND} -E echo "</ul></body></html>" >> ${CMAKE_CURRENT_BINARY_DIR}/index.html
-  COMMAND ${CMAKE_COMMAND} -E copy ${CMAKE_CURRENT_SOURCE_DIR}/html/game.html ${CMAKE_CURRENT_SOURCE_DIR}/html/game.js  ${CMAKE_CURRENT_BINARY_DIR}/
-  DEPENDS "html/head.html"
+  DEPENDS "www/head.html"
+  VERBATIM)
+
+add_custom_command(
+  OUTPUT "game.html" "game.js"
+  COMMAND tsc ${CMAKE_CURRENT_SOURCE_DIR}/www/game.ts --outDir ${CMAKE_CURRENT_BINARY_DIR}
+  COMMAND ${CMAKE_COMMAND} -E copy ${CMAKE_CURRENT_SOURCE_DIR}/www/game.html ${CMAKE_CURRENT_BINARY_DIR}/
+  DEPENDS "www/game.ts"
   VERBATIM)
 
 add_custom_target(lilypond ALL DEPENDS ${PDF_FILES})
 add_custom_target(index ALL DEPENDS "index.html")
+add_custom_target(game ALL DEPENDS "game.html" "game.js")

@@ -35,6 +35,7 @@ function keyDown(event: KeyboardEvent) {
         ++keyDowns;
         const alternate = document.getElementById("alternate") as HTMLInputElement;
         const size = document.getElementById("size") as HTMLInputElement;
+        const color = document.getElementById("color") as HTMLInputElement;
         const letter = document.getElementById("letter") as HTMLDivElement;
         if (!alternate.checked || changes % 2 === 1) {
             key = key.toUpperCase();
@@ -47,8 +48,10 @@ function keyDown(event: KeyboardEvent) {
         if (size.checked) {
             letter.style.fontSize = `${gaussianRandom(500, 100)}px`;
         }
-        letter.style.color =
-            `rgb(${100 * Math.random()}%, ${100 * Math.random()}%, ${100 * Math.random()}%)`;
+        if (color.checked) {
+            letter.style.color =
+                `rgb(${100 * Math.random()}%, ${100 * Math.random()}%, ${100 * Math.random()}%)`;
+        }
         letter.style.animation = `spin${keyDowns % 2} 0.2s linear 1`;
     } else if (key == "Enter") {
         toggleFullScreen();

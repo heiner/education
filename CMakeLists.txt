@@ -25,6 +25,7 @@ add_custom_command(
   COMMAND ${CMAKE_COMMAND} -E copy ${CMAKE_CURRENT_SOURCE_DIR}/html/head.html ${CMAKE_CURRENT_BINARY_DIR}/index.html
   COMMAND ${CMAKE_COMMAND} -E echo "${LI}" >> ${CMAKE_CURRENT_BINARY_DIR}/index.html
   COMMAND ${CMAKE_COMMAND} -E echo "</ul></body></html>" >> ${CMAKE_CURRENT_BINARY_DIR}/index.html
+  COMMAND ${CMAKE_COMMAND} -E copy ${CMAKE_CURRENT_SOURCE_DIR}/html/game.html ${CMAKE_CURRENT_SOURCE_DIR}/html/game.js  ${CMAKE_CURRENT_BINARY_DIR}/
   DEPENDS "html/head.html"
   VERBATIM)
 

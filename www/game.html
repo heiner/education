@@ -4,11 +4,18 @@
 <head>
 <script type="module" src="game.js"></script>
 <link rel="icon" type="image/png" href="/favicon.png"/>
+<style>
+  @keyframes spin0 { 100% { transform:rotate(360deg); } }
+  @keyframes spin1 { 100% { transform:rotate(-360deg); } }
+</style>
 </head>
 
 <body>
   <h1 style="margin-bottom: 5px;">Game</h1>
-  <input type="checkbox" id="random" name="random" /> <label for="random">random</label>
-  <div style="font-size:500px; font-family: Garamond; text-align: center; font-variant-numeric: oldstyle-nums; position: relative; top: 5%;" id="letter">A</div>
+  <input type="checkbox" id="alternate" name="alternate" checked="checked"/> <label for="alternate">alternate case</label>
+  <input type="checkbox" id="size" name="size" /> <label for="size">random size</label>
+  <div style="font-size:500px; font-family: Garamond; text-align: center; font-variant-numeric: oldstyle-nums; position: relative; top: 5%;" id="letter">
+    A
+  </div>
 </body>
 </html>

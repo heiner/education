@@ -32,7 +32,7 @@ add_custom_command(
   OUTPUT "game.html" "game.js"
   COMMAND tsc ${CMAKE_CURRENT_SOURCE_DIR}/www/game.ts --outDir ${CMAKE_CURRENT_BINARY_DIR}
   COMMAND ${CMAKE_COMMAND} -E copy ${CMAKE_CURRENT_SOURCE_DIR}/www/game.html ${CMAKE_CURRENT_BINARY_DIR}/
-  DEPENDS "www/game.ts"
+  DEPENDS "www/game.html" "www/game.ts"
   VERBATIM)
 
 add_custom_target(lilypond ALL DEPENDS ${PDF_FILES})

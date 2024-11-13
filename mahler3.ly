@@ -108,6 +108,8 @@ TbnOne = {
   \midi {}
 }
 
+\pageBreak
+
 \score {
   <<
    \new TabStaff { \TbnOne }

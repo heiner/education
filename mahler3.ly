@@ -32,7 +32,6 @@ semff =
 
 TbnOne = {
   \set Score.rehearsalMarkFormatter = #format-mark-box-numbers
-  \clef bass
   \time 3/2
   \tempo 2 = 45
   \key f \major
@@ -103,8 +102,14 @@ TbnOne = {
 
 \score {
   <<
-    \TbnOne
+    \new Staff { \clef bass \TbnOne }
   >>
   \layout { }
   \midi {}
+}
+
+\score {
+  <<
+   \new TabStaff { \TbnOne }
+  >>
 }

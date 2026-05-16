@@ -1,0 +1,60 @@
+%!PS-Adobe-3.0
+%%BoundingBox: 0 0 612 792
+%%Pages: 1
+%%EndComments
+
+%%Page: 1 1
+
+% Row drawing procedure
+% Usage: baseY drawRow
+% Draws a 3-line row plus a left-side vertical bar that groups them.
+% Row height = 72pt (top line is 1 inch above baseline)
+/drawRow {
+  /baseY exch def
+  /topY baseY 72 add def
+  /midY baseY 36 add def
+
+  % Left connector bar (groups the 3 lines visually)
+  0.2 setgray
+  0.9 setlinewidth
+  [] 0 setdash
+  72 baseY moveto
+  72 topY lineto
+  stroke
+
+  % Top solid line (cap line)
+  0.6 setgray
+  0.6 setlinewidth
+  [] 0 setdash
+  72 topY moveto
+  540 topY lineto
+  stroke
+
+  % Middle dotted line (x-height)
+  0.55 setgray
+  0.7 setlinewidth
+  [2 4] 0 setdash
+  72 midY moveto
+  540 midY lineto
+  stroke
+
+  % Baseline solid line
+  0.2 setgray
+  0.9 setlinewidth
+  [] 0 setdash
+  72 baseY moveto
+  540 baseY lineto
+  stroke
+} def
+
+% Draw 7 rows from top to bottom. Row height 72pt (1in), gap 30pt between baseline and next top.
+666 drawRow
+564 drawRow
+462 drawRow
+360 drawRow
+258 drawRow
+156 drawRow
+ 54 drawRow
+
+showpage
+%%EOF

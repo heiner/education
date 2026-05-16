@@ -4,6 +4,9 @@ project(sheetmusic)
 file(GLOB LY_FILES
   "*.ly")
 
+file(GLOB OTHER_PS_FILES
+  "handwriting_*.ps")
+
 set(PDF_FILES)
 set(LI)
 
@@ -16,6 +19,18 @@ foreach(LY_FILE ${LY_FILES})
     VERBATIM)
   list(APPEND PDF_FILES "${NAME}.pdf")
   list(APPEND LI "<li><a href=\"./${NAME}.pdf\">${NAME}.pdf</a> (<a href=\"./${NAME}.midi\">midi</a>)</li>")
+endforeach()
+
+foreach(PS_FILE ${OTHER_PS_FILES})
+  get_filename_component(NAME ${PS_FILE} NAME_WE)
+  add_custom_command(
+    OUTPUT "${NAME}.pdf" "${NAME}.ps"
+    COMMAND ps2pdf "${PS_FILE}" "${NAME}.pdf"
+    COMMAND ${CMAKE_COMMAND} -E copy "${PS_FILE}" "${NAME}.ps"
+    DEPENDS "${PS_FILE}"
+    VERBATIM)
+  list(APPEND PDF_FILES "${NAME}.pdf")
+  list(APPEND LI "<li><a href=\"./${NAME}.pdf\">${NAME}.pdf</a> (<a href=\"./${NAME}.ps\">ps</a>)</li>")
 endforeach()
 
 list(JOIN LI "    " LI)

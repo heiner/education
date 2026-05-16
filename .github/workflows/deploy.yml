@@ -36,7 +36,7 @@ jobs:
       - name: Build
         run: |
           mkdir _site && cd _site && cmake .. && cmake --build . --parallel
-          find . ! \( -name '*.pdf' -o -name '*.midi' -o -name '*.html' -o -name '*.js' \) -delete
+          find . ! \( -name '*.pdf' -o -name '*.midi' -o -name '*.html' -o -name '*.js' -o -name '*.ps' \) -delete
       - name: Upload artifact
         # Automatically uploads an artifact from the './_site' directory by default
         uses: actions/upload-pages-artifact@v2

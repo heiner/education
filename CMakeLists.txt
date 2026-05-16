@@ -8,7 +8,8 @@ file(GLOB OTHER_PS_FILES
   "handwriting_*.ps")
 
 set(PDF_FILES)
-set(LI)
+set(LI_LY)
+set(LI_MISC)
 
 foreach(LY_FILE ${LY_FILES})
   get_filename_component(NAME ${LY_FILE} NAME_WE)
@@ -18,7 +19,7 @@ foreach(LY_FILE ${LY_FILES})
     DEPENDS "${LY_FILE}"
     VERBATIM)
   list(APPEND PDF_FILES "${NAME}.pdf")
-  list(APPEND LI "<li><a href=\"./${NAME}.pdf\">${NAME}.pdf</a> (<a href=\"./${NAME}.midi\">midi</a>)</li>")
+  list(APPEND LI_LY "<li><a href=\"./${NAME}.pdf\">${NAME}.pdf</a> (<a href=\"./${NAME}.midi\">midi</a>)</li>")
 endforeach()
 
 foreach(PS_FILE ${OTHER_PS_FILES})
@@ -30,16 +31,17 @@ foreach(PS_FILE ${OTHER_PS_FILES})
     DEPENDS "${PS_FILE}"
     VERBATIM)
   list(APPEND PDF_FILES "${NAME}.pdf")
-  list(APPEND LI "<li><a href=\"./${NAME}.pdf\">${NAME}.pdf</a> (<a href=\"./${NAME}.ps\">ps</a>)</li>")
+  list(APPEND LI_MISC "<li><a href=\"./${NAME}.pdf\">${NAME}.pdf</a> (<a href=\"./${NAME}.ps\">ps</a>)</li>")
 endforeach()
 
-list(JOIN LI "    " LI)
+list(JOIN LI_LY "    " LI_LY)
+list(JOIN LI_MISC "    " LI_MISC)
 
 add_custom_command(
   OUTPUT "index.html"
   COMMAND ${CMAKE_COMMAND} -E copy ${CMAKE_CURRENT_SOURCE_DIR}/www/head.html ${CMAKE_CURRENT_BINARY_DIR}/index.html
-  COMMAND ${CMAKE_COMMAND} -E echo "${LI}" >> ${CMAKE_CURRENT_BINARY_DIR}/index.html
-  COMMAND ${CMAKE_COMMAND} -E echo "</ul></body></html>" >> ${CMAKE_CURRENT_BINARY_DIR}/index.html
+  COMMAND ${CMAKE_COMMAND} -E echo "${LI_LY}" >> ${CMAKE_CURRENT_BINARY_DIR}/index.html
+  COMMAND ${CMAKE_COMMAND} -E echo "</ul><h1>Miscellaneous</h1><ul>${LI_MISC}</ul></body></html>" >> ${CMAKE_CURRENT_BINARY_DIR}/index.html
   DEPENDS "www/head.html"
   VERBATIM)
 

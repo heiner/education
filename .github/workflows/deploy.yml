@@ -35,10 +35,7 @@ jobs:
           sudo tar xfz lilypond.tar.gz -C /usr --strip-components=1
       - name: Expose Lilypond's bundled gs on PATH
         run: |
-          gs_path=$(find /usr -name gs -type f -executable 2>/dev/null | head -n1)
-          echo "Found gs at: $gs_path"
-          test -n "$gs_path"
-          sudo ln -sf "$gs_path" /usr/local/bin/gs
+          sudo ln -sf /usr/libexec/gs /usr/local/bin/gs
           gs --version
       - name: Build
         run: |

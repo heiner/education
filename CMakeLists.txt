@@ -25,7 +25,7 @@ foreach(PS_FILE ${OTHER_PS_FILES})
   get_filename_component(NAME ${PS_FILE} NAME_WE)
   add_custom_command(
     OUTPUT "${NAME}.pdf" "${NAME}.ps"
-    COMMAND ps2pdf "${PS_FILE}" "${NAME}.pdf"
+    COMMAND gs -dBATCH -dNOPAUSE -dQUIET -sDEVICE=pdfwrite -sOutputFile=${NAME}.pdf ${PS_FILE}
     COMMAND ${CMAKE_COMMAND} -E copy "${PS_FILE}" "${NAME}.ps"
     DEPENDS "${PS_FILE}"
     VERBATIM)

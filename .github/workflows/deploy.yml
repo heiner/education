@@ -33,8 +33,6 @@ jobs:
         run: |
           wget --no-verbose -O lilypond.tar.gz https://gitlab.com/lilypond/lilypond/-/releases/v2.24.2/downloads/lilypond-2.24.2-linux-x86_64.tar.gz
           sudo tar xfz lilypond.tar.gz -C /usr --strip-components=1
-      - name: Install ghostscript
-        run: sudo apt-get update && sudo apt-get install -y ghostscript
       - name: Build
         run: |
           mkdir _site && cd _site && cmake .. && cmake --build . --parallel

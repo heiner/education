@@ -33,6 +33,13 @@ jobs:
         run: |
           wget --no-verbose -O lilypond.tar.gz https://gitlab.com/lilypond/lilypond/-/releases/v2.24.2/downloads/lilypond-2.24.2-linux-x86_64.tar.gz
           sudo tar xfz lilypond.tar.gz -C /usr --strip-components=1
+      - name: Expose Lilypond's bundled gs on PATH
+        run: |
+          gs_path=$(find /usr -name gs -type f -executable 2>/dev/null | head -n1)
+          echo "Found gs at: $gs_path"
+          test -n "$gs_path"
+          sudo ln -sf "$gs_path" /usr/local/bin/gs
+          gs --version
       - name: Build
         run: |
           mkdir _site && cd _site && cmake .. && cmake --build . --parallel
